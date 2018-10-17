@@ -17,21 +17,3 @@ class UpdateProfile(FlaskForm):
 class CommentForm(FlaskForm):
     comment = StringField('Write a comment')
     submit = SubmitField(('comment'))
-
-
-# class SubForm(FlaskForm):
-#     email = StringField('Your Email Address',validators=[Required(),Email()])
-#     title = StringField('Entre Your Name' ,validators=[Required()])
-#     submit = SubmitField('Subscribe')    
-
-#     def validate_email(self,data_field):
-#                 if Subscribe.query.filter_by(email =data_field.data).first():
-#                     raise ValidationError('Sorry!, there is an account with that email')
-
-
-
-# class LikeForm(FlaskForm):
-#     '''
-#     Class to create a wtf form for liking a blog
-#     '''
-#     submit = SubmitField('Like')

@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1"></div>
+
+            <div class="col-md-10">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ url_for('.index') }}">Home</a></li>
+                        <li class="breadcrumb-item"> {{ article.category }}  </li>
+                    </ol>
+                
+                <h2 class="center" > {{ article.title }} </h2><br>
+                <footer class="blockquote-footer">by {{ article.author.username }} </footer>
+
+                <hr>
+                {{ format_article | safe}}
+                <hr>
+                {% if current_user.is_authenticated %}                            
+                    <a href="{{url_for('.delete_article',id = article.id)}}">
+                        <button type="button" class="btn btn-danger">Delete Post</button>
+                    </a>
+                {% endif %}
+                <hr>
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action active">
+                        Comments
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                        {{ wtf.quick_form(comment_form) }}
+                    </a>   
+                        {% if comments %}
+                            {% for comment in comments %}  
+                                <a href="#" class="list-group-item list-group-item-action active">
+                                    {% if current_user.is_authenticated %}
+                                        {{ current_user.username }} : 
+                                    {% else %}
+                                        Anonymous :
+                                    {% endif %}
+                                    
+                                    {{comment.comment}}
+
+                                    {% if current_user.is_authenticated %}   
+                                        <a href="{{url_for('.delete_comment',id = comment.id)}}" class="badge badge-danger badge-pill">
+                                            Delete Comment
+                                        </a>
+                                        <hr>  
+                                    {% endif %}
+                                </a>
+                            {% endfor %}
+
+                        {% else %}
+                            <a href="#" class="list-group-item list-group-item-action">
+                                No comments .
+                            </a>
+                        {% endif %}
+                </div>
+            </div>
+
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+{% endblock %}

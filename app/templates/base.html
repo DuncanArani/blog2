@@ -1,14 +1,19 @@
- {% extends 'bootstrap/base.html'%}
+{% extends 'bootstrap/base.html' %}
 
-Navbar block  
-{% block navbar %}
-{% include 'navbar.html' %}
+{% block styles %}
+
+
+    <link rel="stylesheet" href="{{url_for('static',filename='css/materia.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    {{super()}}
+    {{ simplemde.css}}
+    {{ simplemde.js }}
+
 {% endblock %}
 
-{%block styles %}
-{{super()}}
-<!--Importing the simple mde css and js files  -->
-{{ simplemde.css}}
-{{ simplemde.js }}
+{% include 'navbar.html' %}
+
+{% block body %}
 
 {% endblock %}

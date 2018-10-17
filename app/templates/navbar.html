@@ -1,0 +1,64 @@
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="/">mybL<i class="fa fa-grav"></i>gs</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarColor01">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('main.behave')}}">Behavioral Psychology</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('main.habits')}}"> Habits </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('main.health')}}"> Health </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url_for('main.decision')}}"> Decision Making </a>
+            </li>
+            
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+              <div class="collapse navbar-collapse" id="navbarColor01">
+                  <ul class="navbar-nav mr-auto">
+                  {% if current_user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url_for('main.new_article')}}">
+                            Create blog + <i class="fa fa-envira" ></i>
+                        </a>
+                      </li>
+
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{url_for('main.profile',username=current_user.username)}}">
+                        {{current_user.username}} <i class="fa fa-user" ></i>
+                      </a>
+                    </li>
+    
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{url_for('auth.logout')}}" >
+                        Logout <i class="fa fa-cog"></i> 
+                      </a>
+                    </li>
+                  {% else %}  
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item nav-link">
+                          Email :
+                        </li>
+                      </ul>
+                    <input name="subscriber"  class="form-control mr-sm-2" type="email" placeholder="get free newsletter">
+                    <a href="{{url_for('main.subscriber')}}"> 
+                        <button type="button" class="btn btn-primary">Subscribe</button>
+                    </a>
+                  {% endif %}
+                  </ul>
+                </div>
+            
+          </form>
+        </div>
+      </nav>
+</div>

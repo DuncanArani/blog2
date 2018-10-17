@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macro %}
+
+{% block body %}
+    <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url_for('main.index') }}">Home</a></li>
+                <li class="breadcrumb-item active"> {{ category }}  </li>
+            </ol>
+
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                {% if articles %}
+                    {{ macro.displayArticles(articles) }}
+                {% else %}
+                    It appears no articles under this category has been published . Yet !
+                {% endif %}
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+{% endblock %}
