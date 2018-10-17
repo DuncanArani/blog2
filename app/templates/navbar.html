@@ -1,5 +1,5 @@
 <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg">
         <a class="navbar-brand" href="/">mybL<i class="fa fa-grav"></i>gs</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -10,7 +10,7 @@
             <li class="nav-item active">
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{url_for('main.behave')}}">Behavioral Psychology</a>
+              <a class="nav-link" href="{{url_for('main.behave')}}">Psycological Behaviour</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{url_for('main.habits')}}"> Habits </a>
@@ -52,7 +52,7 @@
                       </ul>
                     <input name="subscriber"  class="form-control mr-sm-2" type="email" placeholder="get free newsletter">
                     <a href="{{url_for('main.subscriber')}}"> 
-                        <button type="button" class="btn btn-primary">Subscribe</button>
+                        <button type="button" class="btn">Subscribe</button>
                     </a>
                   {% endif %}
                   </ul>
