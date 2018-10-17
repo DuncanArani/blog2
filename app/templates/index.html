@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <div class="container">
+        {% for message in get_flashed_messages() %}
+            <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ message }}
+            </div>
+          {% endfor %}
+        <div class="row">
+
+
+            <div class="col-md-8">
+
+                    <div class="jumbotron">
+                        <h1 class="display-3">Best Articles</h1>
+                        <p class="lead">
+                            This page shares my best articles to read on topics like health, happiness, creativity, productivity and more. 
+                            The central question that drives my work is, “How can we live better and postively with different people from different backrounds?” 
+                        </p>
+                        <p class="lead">
+                            To answer that question, I like to write about social-based ways to solve this practical problems that we are facing in our day to day life.
+                        </p>
+                        <hr class="my-4">
+                        <p>
+                            <h4>You’ll find interesting articles to read on topics like</h4> 
+                            Problems are hidden opportunities, and constraints can actually boost creativity.
+                            <br>
+                            Without continual growth and progress, such words as improvement, achievement, and success have no meaning.  
+
+                        </p>
+                        <p class="lead">
+                            <a class="btn btn-primary btn-lg" href="{{url_for('auth.register')}}" role="button">Write Own Blogs </a>
+                        </p>
+                    </div>
+            </div>
+
+
+            <div class="col-md-4">
+                   {% if current_user.is_authenticated %}
+                    <div class="card mb-3">
+                            <h3 class="card-header"> About Author </h3>
+                            <div class="card-body">
+                            <h5 class="card-title"> {{current_user.username}} </h5>
+                            </div>
+                        
+                                {% if current_user.profile_pic_path %}
+                                    <img src="{{url_for('static',filename=  current_user.profile_pic_path)}}" alt="" class="img-thumbnail">
+                                {% else %}
+                                    <img style="height: auto; width: 100%; display: block;" src="{{url_for('static',filename='photos/arunco.jpeg')}}" alt="Card image">
+                                {% endif %}
+
+                            <div class="card-body">
+                            <p class="card-text">
+                                Hi , I'm {{ current_user.username }}
+                            </p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                {% if current_user.bio %}
+                                    {{current_user.bio}}
+                                {% else %}
+                                    <p>No bio yet</p>
+                                {% endif %}
+                            </ul>
+                        </div>
+                   {% else %}
+                    <div class="card mb-3">
+                            <h3 class="card-header"> About Author </h3>
+                            <div class="card-body">
+                            <h5 class="card-title">Arani </h5>
+                            </div>
+                        
+                                {% if current_user.profile_pic_path %}
+                                    <img src="{{url_for('static',filename=  current_user.profile_pic_path)}}" alt="" class="img-thumbnail">
+                                {% else %}
+                                    <img style="height: auto; width: 100%; display: block;" src="{{url_for('static',filename='photos/arunco.jpg')}}" alt="Card image">
+                                {% endif %}
+
+                            <div class="card-body">
+                            <p class="card-text">
+                                Hello, This is Arani.
+                            </p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                               Start your day right - Before you turn on the TV or radio, or read the news, spend some time first thing in the morning to read something motivational, inspirational, or educational. Make the first thing you put into your mind something that is consistent with the life you want to have.
+                            </li>
+                            <li class="list-group-item">
+                               No matter how good you think you are as a leader, my goodness, the people around you will have all kinds of ideas for how you can get better. So for me, the most fundamental thing about leadership is to have the humility to continue to get feedback and to try to get better - because your job is to try to help everybody else get better.
+
+                            </li>
+                            <li class="list-group-item">
+                                I believe that you can, by taking some simple and inexpensive measures, lead a longer life and extend your years of well-being. My most important recommendation is that you take vitamins every day in optimum amounts to supplement the vitamins that you receive in your food.
+                            </li>
+                            <li class="list-group-item">
+                                My work has been covered by dozens of major media outlets including The New York Times, Entrepreneur, TIME, and on CBS This Morning. I don’t consider myself an expert and I don’t have all the answers, but I’m happy to share what I’ve learned so far.
+                            </li>
+                            </ul>
+                            <div class="card-footer text-muted">
+                            Follow me on :
+                            </div>
+                            <div class="card-body center">
+                            <a href="#" class="card-link">Facebook <i class="fa fa-facebook"></i> </a>
+                            <a href="#" class="card-link">GitHub <i class="fa fa-github"></i> </a>
+                            <a href="#" class="card-link">Twitter <i class="fa fa-twitter"></i>  </a>
+                            </div>
+                        </div>
+                   {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
