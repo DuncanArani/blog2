@@ -11,7 +11,7 @@
         </button>
       
         <div class="collapse navbar-collapse" id="navbarColor01">
-          <ul class="navbar-nav mr-auto"style="list-style-type: none;margin: 0;padding-left:12.0em">
+          <ul class="navbar-nav mr-auto"style="list-style-type: none;margin: 0;padding-left:5.0em">
             <!-- <li class="nav-item active">
             </li> -->
             <li >
@@ -55,19 +55,27 @@
                     </li>
                   {% else %}  
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item nav-link">
-                          Email:
-                        </li>
-                      </ul>
-                    <input name="subscriber"  class="form-control mr-sm-2" type="email" placeholder="get free newsletter">
-                    <a href="{{url_for('main.subscriber')}}"> 
-                        <button type="button" class="btn btn-primary">Subscribe</button>
+                       
+                    <form class="form-inline" action="/action_page.php">
+                    <div class="form-group">
+                      <label for="email">Email:</label>
+                      <input type="email" class="form-control mr-sm-2" id="email" placeholder="get free newsletter">
+                      <a href="{{url_for('main.subscriber')}}"> 
+                      <button type="button" class="btn btn-primary">Subscribe</button>
                     </a>
+                    </div>
+                      </ul>
+                    
                   {% endif %}
                   </ul>
                 </div>
             
           </form>
+
+          <ul class="nav navbar-nav navbar-right">
+      <!-- # <li><a href="{{url_for('auth.register')}}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li> -->
+      <li><a href="{{url_for('auth.login')}}"><span class="glyphicon glyphicon-log-in"style="margin-top:2px;"></span> Login</a></li>
+    </ul>
         </div>
       </nav>
 </div>

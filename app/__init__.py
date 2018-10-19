@@ -7,6 +7,7 @@ from flask_mail import Mail
 from flask_simplemde import SimpleMDE
 
 
+
 from config import config_options , Config
 
 # **** instantiate extensions ****
@@ -17,7 +18,8 @@ login_manager.session_protection = 'strong'
 login_manager.login_view = 'auth.login'
 mail = Mail()
 simple = SimpleMDE()
-
+# user_manager=UserManager()
+# admin_manager=AdminManager()
 photos = UploadSet("photos",IMAGES)
 
 

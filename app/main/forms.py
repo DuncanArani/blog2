@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField,TextAreaField,SubmitField,SelectField
-from wtforms.validators import Required ,DataRequired
+from wtforms import StringField,TextAreaField,SubmitField,SelectField,PasswordField,BooleanField
+from wtforms.validators import Required ,DataRequired,Email
 
 class ArticleForm(FlaskForm):
     title = StringField('Title')
@@ -17,3 +17,12 @@ class UpdateProfile(FlaskForm):
 class CommentForm(FlaskForm):
     comment = StringField('Write a comment')
     submit = SubmitField(('comment'))
+
+
+# class LoginForm(FlaskForm):
+#     email = StringField('Your Email Address',validators=[Required(),Email()])
+#     password = PasswordField('Password',validators =[Required()])
+#     remember = BooleanField('Remember me')
+#     submit = SubmitField('Sign In')
+
+    

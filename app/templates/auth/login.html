@@ -22,7 +22,11 @@
       {{ wtf.quick_form(login_form) }}
 
       <p> Don't  have an account?  <a href="{{url_for('auth.register')}}">Sign up here</a></p>
-
+      <!-- <p> <a href="{{url_for('auth.login')}}">login_form</a></p> -->
+      <p><a href="{{ url_for('main.user_page') }}">login as user</a></p>
+      <!-- <p><a href="{{ url_for('main.user_page') }}">Home </p> -->
+      <p><a href="{{ url_for('main.user_page') }}">login as admin</a></p>
+      <!-- <p><a href="{{ url_for('auth.logout') }}">Sign out</a></p> -->
     </div>
     <div class="col-md-2"style="background-color:maroon; padding:20px; margin-top:0px; padding-top:40px; padding-bottom:400px;"> </div>
 

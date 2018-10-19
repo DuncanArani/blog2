@@ -36,13 +36,15 @@ class Admin (UserMixin , db.Model):
         db.session.commit()
 
 
+
+
 @login_manager.user_loader 
 def load_user(user_id):
     return Admin.query.get(int(user_id))
 
 
 '''
-Article modelDUNCO
+Article model
  . Defines our articles' table . Creates a relationship between the table and our Admin . 
 We need a way to query authors' details . 
 '''
@@ -118,4 +120,22 @@ class Subscriber(db.Model):
     def fetch_readers(cls):
         readers = Subscriber.query.all()
 
-        return readers
+class User( db.Model ):
+    __tablename__ = 'users'
+    id = db.Column(db.Integer, primary_key =True)
+    username = db.Column(db.String(255))
+    role_id = db.Column(db.Integer,db.ForeignKey('roles.id'))
+    
+    def __repr__(self):
+        return f'User {self.username}'
+
+        
+class Role(db.Model):
+    __tablename__ = 'roles'
+
+    id = db.Column(db.Integer,primary_key = True)
+    name = db.Column(db.String(255))
+    users = db.relationship('User',backref = 'role',lazy="dynamic")
+
+    def __repr__(self):
+        return f'User {self.name}'
