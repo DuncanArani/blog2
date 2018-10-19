@@ -42,7 +42,8 @@ def load_user(user_id):
 
 
 '''
-Article model . Defines our articles' table . Creates a relationship between the table and our Admin . 
+Article modelDUNCO
+ . Defines our articles' table . Creates a relationship between the table and our Admin . 
 We need a way to query authors' details . 
 '''
 class Article (db.Model):
