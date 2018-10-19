@@ -2,7 +2,7 @@
 {% extends 'base.html' %}
 
 {% block body %}
-    <div class="container">
+    <div class="container"style="background-color:powderblue;">
         {% for message in get_flashed_messages() %}
             <div class="alert alert-success">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -15,7 +15,7 @@
             <div class="col-md-8">
 
                     <div class="jumbotron">
-                             <h1 class="display-3">BEST BLOG ARTICLES</h1>
+                             <h1 class="display-3" style="font-size:50px;font-family: 'Rye', cursive;">BEST BLOG ARTICLES</h1>
                         <p class="lead">
                             This page shares my best articles to read on topics like health, happiness, creativity, productivity and more. 
                             The central question that drives my work is, “How can we live better and postively with different people from different backrounds?” 

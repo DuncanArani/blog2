@@ -1,25 +1,33 @@
 
-<div class="container">
-    <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand" href="/">dunL<i class="fa fa-grav"></i>g</a>
+<div class="container" style=background-color:powderblue>
+    <nav class="navbar navbar-expand-lg"style="background-color:black;width:100%;">
+        <a class="navbar-brand" href="/"style="font-size:50px;font-family: 'Fontdiner Swanky', cursive;
+
+;">myblogs</a>
+&ensp;&ensp;
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
       
         <div class="collapse navbar-collapse" id="navbarColor01">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+          <ul class="navbar-nav mr-auto"style="list-style-type: none;margin: 0;padding-left:12.0em">
+            <!-- <li class="nav-item active">
+            </li> -->
+            <li >
+              <a class="nav-link" href="{{url_for('main.behave')}}">Psychology</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{url_for('main.behave')}}">Psychology behaviour</a>
-            </li>
-            <li class="nav-item">
+            &ensp;
+            &ensp;
+            <li >
               <a class="nav-link" href="{{url_for('main.habits')}}"> Habits </a>
             </li>
-            <li class="nav-item">
+            &ensp;&ensp;
+            <li>
               <a class="nav-link" href="{{url_for('main.health')}}"> Health </a>
             </li>
-            <li class="nav-item">
+            &ensp;&ensp;
+            <li >
               <a class="nav-link" href="{{url_for('main.decision')}}"> Decision Making </a>
             </li>
             
