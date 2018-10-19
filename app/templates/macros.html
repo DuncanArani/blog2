@@ -1,23 +1,16 @@
-{% extends 'base.html' %}
-{% import 'macros.html' as macro %}
-
-{% block body %}
-    <div class="container">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="{{ url_for('main.index') }}">Home</a></li>
-                <li class="breadcrumb-item active"> {{ category }}  </li>
-            </ol>
-
-        <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-10">
-                {% if articles %}
-                    {{ macro.displayArticles(articles) }}
-                {% else %}
-                    It appears no articles under this category has been published . Yet !
-                {% endif %}
-            </div>
-            <div class="col-md-1"></div>
+{% macro displayArticles(articles) %}
+    {% for article in articles %}
+        <div class="list-group">
+            <p class="list-group-item list-group-item-action active">
+            {{ article.title }}  <span class="badge badge-primary badge-pill">by <a href="{{url_for('main.profile_pic',username=article.author.username)}}">{{ article.author.username }}</a> </span>
+            </p>
+            <p class="list-group-item list-group-item-action">
+                {{ article.article | truncate(500) }}
+            </p>
+            <p class="list-group-item list-group-item-action disabled">
+                <a href="{{ url_for('.single_article',id = article.id) }}">continue reading . . .</a>
+                 <span class="badge badge-primary badge-pill">Posted : {{article.posted}} </span>
+            </p>
         </div>
-    </div>
-{% endblock %}
+    {% endfor %}
+{% endmacro %}

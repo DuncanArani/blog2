@@ -1,3 +1,4 @@
+
 {% extends 'base.html' %}
 
 {% block body %}
@@ -14,7 +15,7 @@
             <div class="col-md-8">
 
                     <div class="jumbotron">
-                        <h1 class="display-3">BEST BLOG ARTICLES</h1>
+                             <h1 class="display-3">BEST BLOG ARTICLES</h1>
                         <p class="lead">
                             This page shares my best articles to read on topics like health, happiness, creativity, productivity and more. 
                             The central question that drives my work is, “How can we live better and postively with different people from different backrounds?” 
@@ -31,7 +32,7 @@
 
                         </p>
                         <p class="lead">
-                            <a class="btn" href="{{url_for('auth.register')}}" role="button">Write Your Own Blogs </a>
+                            <a class="btn btn-primary btn-lg" href="{{url_for('auth.register')}}" role="button"> become a Writer </a>
                         </p>
                     </div>
             </div>
@@ -69,18 +70,18 @@
                     <div class="card mb-3">
                             <h3 class="card-header"> About Author </h3>
                             <div class="card-body">
-                            <h5 class="card-title">Arani </h5>
+                            <h5 class="card-title"> ARANI </h5>
                             </div>
                         
                                 {% if current_user.profile_pic_path %}
                                     <img src="{{url_for('static',filename=  current_user.profile_pic_path)}}" alt="" class="img-thumbnail">
                                 {% else %}
-                                    <img style="height: auto; width: 100%; display: block;" src="{{url_for('static',filename='photos/arunco.jpg')}}" alt="Card image">
+                                    <img style="height: auto; width: 100%; display: block;" src="{{url_for('static',filename='photos/arunco.jpeg')}}" alt="Card image">
                                 {% endif %}
 
                             <div class="card-body">
                             <p class="card-text">
-                                Hello, This is Arani.
+                                Hi , I'm Arani
                             </p>
                             </div>
                             <ul class="list-group list-group-flush">
