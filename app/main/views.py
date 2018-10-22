@@ -175,6 +175,7 @@ def profile_pic(username):
 A route to delete an Article from a category
 '''
 @main.route('/article/delete/<int:id>')
+@login_required
 def delete_article(id):
     article = Article.query.filter_by(id=id).first()
     article.delete_article()
@@ -187,6 +188,7 @@ def delete_article(id):
 A route to delete comments from a particular blog
 '''
 @main.route('/comment/delete/<int:id>')
+@login_required
 def delete_comment(id):
 
     comment = Comment.query.filter_by(id=id).first()
