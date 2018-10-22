@@ -1,8 +1,9 @@
 import unittest
-from app.models import blog  
-blog = blog
+from app.models import Article
 
-class blogTest(unittest.TestCase):
+article = Article
+
+class articleTest(unittest.TestCase):
     '''
     Test Class to test the behaviour of the blog class
     '''
@@ -11,8 +12,8 @@ class blogTest(unittest.TestCase):
         '''
         Set up method that will run before every Test
         '''
-        self.new_blog = blog(133,'killed by excelence')
+        self.new_article = article(133,'killed by excelence')
 
     def test_instance(self):
-        self.assertTrue(isinstance(self.new_blog,blog))
+        self.assertTrue(isinstance(self.new_article,article))
         

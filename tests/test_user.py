@@ -1,17 +1,17 @@
 import unittest
-from app.models import User
+from app.models import Admin
 
-class UserModelTest(unittest.TestCase):
+class AdminModelTest(unittest.TestCase):
 
     def setUp(self):
-        self.new_user = User(password = 'dunco')
+        self.new_admin = Admin(password = 'dunco')
 
     def test_password_setter(self):
-        self.assertTrue(self.new_user.pass_secure is not None)
+        self.assertTrue(self.new_admin.pass_secure is not None)
 
     def test_no_access_password(self):
             with self.assertRaises(AttributeError):
-                self.new_user.password
+                self.new_admin.password
 
     def test_password_verification(self):
-        self.assertTrue(self.new_user.verify_password('dunco'))
+        self.assertTrue(self.new_admin.verify_password('dunco'))

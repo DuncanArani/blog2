@@ -1,4 +1,4 @@
-from app.models import Comment,User
+from app.models import Comment,Admin
 from app import db
 import unittest
 
@@ -7,12 +7,12 @@ class CommentTest(unittest.TestCase):
     Test Class to test the behaviour of the blog class
     '''
     def setUp(self):
-        self.user_Dunco = User(username = 'Dunco',password = 'dunco', email = 'duncanarani254@gmail.com')
-        self.new_comment = Comment(blog_id=12345,blog_title='Review for movies',image_path="https://image.tmdb.org/t/p/w500/jdjdjdjn",movie_review='best series ever watched',user = self.user_Dunco ) 
+        self.admin_Dunco = Admin(username = 'Dunco',password = 'dunco', email = 'aruncodunco@gmail.com')
+        self.new_comment = Comment(blog_id=12345,blog_title='Review for movies',image_path="https://image.tmdb.org/t/p/w500/jdjdjdjn",movie_review='best series ever watched',admin = self.user_Dunco ) 
 
     def tearDown(self):
         Comment.query.delete()
-        User.query.delete()
+        Admin.query.delete()
 
     def test_check_instance_variables(self):
         self.assertEquals(self.new_comment.blog_id,12345)

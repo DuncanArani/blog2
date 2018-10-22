@@ -21,20 +21,6 @@ def index():
 A view that redirects to new_article.html . Should the admin wish to add a new article . 
 
 '''
-@main.route('/admin')
-@roles_required('Admin')    # Use of @roles_required decorator
-def admin_page():
-        return render_template_string("main.index")
-
-        return app
-
-@main.route('/user')
-@login_required    # Use of @roles_required decorator
-def user_page():
-        return render_template_string("auth/login.html")
-
-        return app
-    
 
 @main.route('/new-article',methods=["GET","POST"])
 @login_required
